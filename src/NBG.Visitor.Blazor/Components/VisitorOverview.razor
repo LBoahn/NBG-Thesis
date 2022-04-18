@@ -269,9 +269,8 @@
 
         if (!result.Cancelled)
         {
-            //await DataRepository.RemoveVisit(visit.Id);
-            //Visits.Remove(visit);
-            await DataRepository.RemoveOldVisits();
+            await DataRepository.RemoveVisit(visit.Id);
+            Visits.Remove(visit);
 
             Snackbar.Add(Loc["DeletedVisitMsg"], Severity.Success);
             await JS.InvokeVoidAsync("console.log",Loc["DeletedVisitMsg"]);
@@ -324,8 +323,7 @@
         foreach (var item in menus)
         {
             item.CloseMenu();
-        }   
-        Console.WriteLine(menus.Count);
+        }
     }
     //table: OnRowClick, SellectedItem, SelectedItemChanged, SetSelectedItem
     //Focus trap?
